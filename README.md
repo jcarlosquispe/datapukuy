@@ -1,4 +1,6 @@
-# Open Data Catalog for Peru
+# DataPukuy - Independent open data catalog for Peru :peru:
+
+![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
 This repository aims to build an open data catalog that is easy to browse and fetch for relevant country-level information on Peru. Given the broken and incomplete data sources for the country, this catalog will attempt to centralize and standardize as many as possible on the country, region, district, and zip code level.
 
