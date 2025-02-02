@@ -1,0 +1,292 @@
+{
+    "LastUpdate": "2025-02-02",
+    "Source": "INEI",
+    "National": {
+        "TotalProjectedPopulation": 34038457,
+        "SurfaceArea": "1,285,215.6 Km2",
+        "LifeExpectancy": "77.2 Years",
+        "EconomicallyActivePopulation": 18157195,
+        "PopulationWithHealthInsurance": "88.4%",
+        "HouseholdsWithPublicWaterSupply": "91.0%",
+        "HouseholdsWithMobilePhoneAccess": "94.9%",
+        "HouseholdsWithInternetAccess": "55.3%",
+        "PerCapitaGDP": 20853
+    },
+    "Departmental": {
+        "Lima": {
+            "TotalProjectedPopulation": 11304993,
+            "SurfaceArea": "34,828.12 Km2",
+            "LifeExpectancy": "80.3 Years",
+            "EconomicallyActivePopulation": 552443,
+            "PopulationWithHealthInsurance": "",
+            "HouseholdsWithPublicWaterSupply": "",
+            "HouseholdsWithMobilePhoneAccess": "",
+            "HouseholdsWithInternetAccess": "",
+            "PerCapitaGDP": 31004
+        },
+        "Arequipa": {
+            "TotalProjectedPopulation": 1605569,
+            "SurfaceArea": "63,345.39 Km2",
+            "LifeExpectancy": "79.4 Years",
+            "EconomicallyActivePopulation": 773433,
+            "PopulationWithHealthInsurance": "80.9%",
+            "HouseholdsWithPublicWaterSupply": "95.4%",
+            "HouseholdsWithMobilePhoneAccess": "98.0%",
+            "HouseholdsWithInternetAccess": "67.7%",
+            "PerCapitaGDP": 32837
+        },
+        "Moquegua": {
+            "TotalProjectedPopulation": 201129,
+            "SurfaceArea": "15,733.97 Km2",
+            "LifeExpectancy": "78.9 Years",
+            "EconomicallyActivePopulation": 109901,
+            "PopulationWithHealthInsurance": "87.63%",
+            "HouseholdsWithPublicWaterSupply": "98.3%",
+            "HouseholdsWithMobilePhoneAccess": "97.3%",
+            "HouseholdsWithInternetAccess": "66.9%",
+            "PerCapitaGDP": 81368
+        },
+        "Tacna": {
+            "TotalProjectedPopulation": 396180,
+            "SurfaceArea": "16,075.89 Km2",
+            "LifeExpectancy": "77.8 Years",
+            "EconomicallyActivePopulation": 215543,
+            "PopulationWithHealthInsurance": "81.4%",
+            "HouseholdsWithPublicWaterSupply": "96.5%",
+            "HouseholdsWithMobilePhoneAccess": "96.4%",
+            "HouseholdsWithInternetAccess": "63.9%",
+            "PerCapitaGDP": 31765
+        },
+        "Puno": {
+            "TotalProjectedPopulation": 1208802,
+            "SurfaceArea": "71,999.00 Km2",
+            "LifeExpectancy": "74.5 Years",
+            "EconomicallyActivePopulation": 717427,
+            "PopulationWithHealthInsurance": "82.9%",
+            "HouseholdsWithPublicWaterSupply": "81.6%",
+            "HouseholdsWithMobilePhoneAccess": "89.9%",
+            "HouseholdsWithInternetAccess": "22.2%",
+            "PerCapitaGDP": 15501
+        },
+        "Apurimac": {
+            "TotalProjectedPopulation": 426626,
+            "SurfaceArea": "20,895.77 Km2",
+            "LifeExpectancy": "74.8 Years",
+            "EconomicallyActivePopulation": 254076,
+            "PopulationWithHealthInsurance": "96.1%",
+            "HouseholdsWithPublicWaterSupply": "97.3%",
+            "HouseholdsWithMobilePhoneAccess": "91.2%",
+            "HouseholdsWithInternetAccess": "33.5%",
+            "PerCapitaGDP": 33765
+        },
+        "Cusco": {
+            "TotalProjectedPopulation": 1398036,
+            "SurfaceArea": "71,986.50 Km2",
+            "LifeExpectancy": "74.6 Years",
+            "EconomicallyActivePopulation": 800782,
+            "PopulationWithHealthInsurance": "94.6%",
+            "HouseholdsWithPublicWaterSupply": "93.5%",
+            "HouseholdsWithMobilePhoneAccess": "92.3%",
+            "HouseholdsWithInternetAccess": "37.7%",
+            "PerCapitaGDP": 31371
+        },
+        "MadreDeDios": {
+            "TotalProjectedPopulation": 197096,
+            "SurfaceArea": "85,300.54 Km2",
+            "LifeExpectancy": "76.4 Years",
+            "EconomicallyActivePopulation": 109157,
+            "PopulationWithHealthInsurance": "85.6%",
+            "HouseholdsWithPublicWaterSupply": "90.1%",
+            "HouseholdsWithMobilePhoneAccess": "97.0%",
+            "HouseholdsWithInternetAccess": "48.1%",
+            "PerCapitaGDP": 16708
+        },
+        "Ayacucho": {
+            "TotalProjectedPopulation": 669737,
+            "SurfaceArea": "43,821.08 Km2",
+            "LifeExpectancy": "74.5 Years",
+            "EconomicallyActivePopulation": 383728,
+            "PopulationWithHealthInsurance": "93.5%",
+            "HouseholdsWithPublicWaterSupply": "95.4%",
+            "HouseholdsWithMobilePhoneAccess": "92.1%",
+            "HouseholdsWithInternetAccess": "35.2%",
+            "PerCapitaGDP": 16079
+        },
+        "Ica": {
+            "TotalProjectedPopulation": 1062346,
+            "SurfaceArea": "21,327.83 Km2",
+            "LifeExpectancy": "79.6 Years",
+            "EconomicallyActivePopulation": 526000,
+            "PopulationWithHealthInsurance": "84.7%",
+            "HouseholdsWithPublicWaterSupply": "91.4%",
+            "HouseholdsWithMobilePhoneAccess": "96.8%",
+            "HouseholdsWithInternetAccess": "64.3%",
+            "PerCapitaGDP": 41134
+        },
+        "Huancavelica": {
+            "TotalProjectedPopulation": 335142,
+            "SurfaceArea": "22,125.2 Km2",
+            "LifeExpectancy": "74.3 Years",
+            "EconomicallyActivePopulation": 186347,
+            "PopulationWithHealthInsurance": "97.7%",
+            "HouseholdsWithPublicWaterSupply": "91.8%",
+            "HouseholdsWithMobilePhoneAccess": "91.4%",
+            "HouseholdsWithInternetAccess": "24.3%",
+            "PerCapitaGDP": 18179
+        },
+        "Junin": {
+            "TotalProjectedPopulation": 1380561,
+            "SurfaceArea": "44,328.8 Km2",
+            "LifeExpectancy": "75.7 Years",
+            "EconomicallyActivePopulation": 752518,
+            "PopulationWithHealthInsurance": "90.8%",
+            "HouseholdsWithPublicWaterSupply": "92.9%",
+            "HouseholdsWithMobilePhoneAccess": "93.0%",
+            "HouseholdsWithInternetAccess": "43.1%",
+            "PerCapitaGDP": 19520
+        },
+        "Ucayali": {
+            "TotalProjectedPopulation": 639279,
+            "SurfaceArea": "102,199.28 Km2",
+            "LifeExpectancy": "75.3 Years",
+            "EconomicallyActivePopulation": 318292,
+            "PopulationWithHealthInsurance": "86.5%",
+            "HouseholdsWithPublicWaterSupply": "77.0%",
+            "HouseholdsWithMobilePhoneAccess": "92.8%",
+            "HouseholdsWithInternetAccess": "43.6%",
+            "PerCapitaGDP": 13423
+        },
+        "Pasco": {
+            "TotalProjectedPopulation": 265392,
+            "SurfaceArea": "25,025.84 Km2",
+            "LifeExpectancy": "75.8 Years",
+            "EconomicallyActivePopulation": 151157,
+            "PopulationWithHealthInsurance": "93.6%",
+            "HouseholdsWithPublicWaterSupply": "80.9%",
+            "HouseholdsWithMobilePhoneAccess": "93.8%",
+            "HouseholdsWithInternetAccess": "47.4%",
+            "PerCapitaGDP": 34028
+        },
+        "Callao": {
+            "TotalProjectedPopulation": 1209614,
+            "SurfaceArea": "145.91 Km2",
+            "LifeExpectancy": "80.3 Years",
+            "EconomicallyActivePopulation": 574340,
+            "PopulationWithHealthInsurance": "87.4%",
+            "HouseholdsWithPublicWaterSupply": "96.5%",
+            "HouseholdsWithMobilePhoneAccess": "96.8%",
+            "HouseholdsWithInternetAccess": "77.4%",
+            "PerCapitaGDP": 36712
+        },
+        "Huanuco": {
+            "TotalProjectedPopulation": 746509,
+            "SurfaceArea": "37,625.77 Km2",
+            "LifeExpectancy": "75.6 Years",
+            "EconomicallyActivePopulation": 339657,
+            "PopulationWithHealthInsurance": "93.7%",
+            "HouseholdsWithPublicWaterSupply": "83.4%",
+            "HouseholdsWithMobilePhoneAccess": "95.0%",
+            "HouseholdsWithInternetAccess": "33.7%",
+            "PerCapitaGDP": 14985
+        },
+        "Ancash": {
+            "TotalProjectedPopulation": 1202171,
+            "SurfaceArea": "35,889.91 Km2",
+            "LifeExpectancy": "77.1 Years",
+            "EconomicallyActivePopulation": 642561,
+            "PopulationWithHealthInsurance": "94.3%",
+            "HouseholdsWithPublicWaterSupply": "91.5%",
+            "HouseholdsWithMobilePhoneAccess": "95.7%",
+            "HouseholdsWithInternetAccess": "49.1%",
+            "PerCapitaGDP": 31460
+        },
+        "LaLibertad": {
+            "TotalProjectedPopulation": 2130145,
+            "SurfaceArea": "25,499.90 Km2",
+            "LifeExpectancy": "78.8 Years",
+            "EconomicallyActivePopulation": 1207289,
+            "PopulationWithHealthInsurance": "89.3%",
+            "HouseholdsWithPublicWaterSupply": "90.7%",
+            "HouseholdsWithMobilePhoneAccess": "95.9%",
+            "HouseholdsWithInternetAccess": "57.8%",
+            "PerCapitaGDP": 19267
+        },
+        "SanMartin": {
+            "TotalProjectedPopulation": 945523,
+            "SurfaceArea": "51,288.07 Km2",
+            "LifeExpectancy": "75.8 Years",
+            "EconomicallyActivePopulation": 495339,
+            "PopulationWithHealthInsurance": "89.5%",
+            "HouseholdsWithPublicWaterSupply": "92.2%",
+            "HouseholdsWithMobilePhoneAccess": "94.9%",
+            "HouseholdsWithInternetAccess": "44.6%",
+            "PerCapitaGDP": 11662
+        },
+        "Loreto": {
+            "TotalProjectedPopulation": 1057592,
+            "SurfaceArea": "368,773.16 Km2",
+            "LifeExpectancy": "75.9 Years",
+            "EconomicallyActivePopulation": 511802,
+            "PopulationWithHealthInsurance": "91.0%",
+            "HouseholdsWithPublicWaterSupply": "68.5%",
+            "HouseholdsWithMobilePhoneAccess": "84.0%",
+            "HouseholdsWithInternetAccess": "34.8%",
+            "PerCapitaGDP": 14106
+        },
+        "Amazonas": {
+            "TotalProjectedPopulation": 430123,
+            "SurfaceArea": "39,249.13 Km2",
+            "LifeExpectancy": "74.9 Years",
+            "EconomicallyActivePopulation": 217733,
+            "PopulationWithHealthInsurance": "95.1%",
+            "HouseholdsWithPublicWaterSupply": "89.5%",
+            "HouseholdsWithMobilePhoneAccess": "90.1%",
+            "HouseholdsWithInternetAccess": "40.8%",
+            "PerCapitaGDP": 13474
+        },
+        "Cajamarca": {
+            "TotalProjectedPopulation": 1447707,
+            "SurfaceArea": "33,304.32 Km2",
+            "LifeExpectancy": "76.2 Years",
+            "EconomicallyActivePopulation": 785728,
+            "PopulationWithHealthInsurance": "91.3%",
+            "HouseholdsWithPublicWaterSupply": "88.7%",
+            "HouseholdsWithMobilePhoneAccess": "90.4%",
+            "HouseholdsWithInternetAccess": "31.1%",
+            "PerCapitaGDP": 14880
+        },
+        "Lambayeque": {
+            "TotalProjectedPopulation": 1361554,
+            "SurfaceArea": "14,479.52 Km2",
+            "LifeExpectancy": "79.5 Years",
+            "EconomicallyActivePopulation": 706289,
+            "PopulationWithHealthInsurance": "95.9%",
+            "HouseholdsWithPublicWaterSupply": "93.8%",
+            "HouseholdsWithMobilePhoneAccess": "97.1%",
+            "HouseholdsWithInternetAccess": "59.2%",
+            "PerCapitaGDP": 16226
+        },
+        "Piura": {
+            "TotalProjectedPopulation": 2149978,
+            "SurfaceArea": "35,657.50 Km2",
+            "LifeExpectancy": "77.3 Years",
+            "EconomicallyActivePopulation": 1197141,
+            "PopulationWithHealthInsurance": "90.4%",
+            "HouseholdsWithPublicWaterSupply": "84.5%",
+            "HouseholdsWithMobilePhoneAccess": "94.9%",
+            "HouseholdsWithInternetAccess": "44.2%",
+            "PerCapitaGDP": 18875
+        },
+        "Tumbes": {
+            "TotalProjectedPopulation": 266653,
+            "SurfaceArea": "4,669.2 Km2",
+            "LifeExpectancy": "77.4 Years",
+            "EconomicallyActivePopulation": 144584,
+            "PopulationWithHealthInsurance": "95.0%",
+            "HouseholdsWithPublicWaterSupply": "84.2%",
+            "HouseholdsWithMobilePhoneAccess": "96.2%",
+            "HouseholdsWithInternetAccess": "51.0%",
+            "PerCapitaGDP": 19478
+        }
+    }
+}

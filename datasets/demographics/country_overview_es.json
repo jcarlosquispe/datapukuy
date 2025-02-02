@@ -1,0 +1,292 @@
+{
+    "UltimaActualizacion": "2025-02-02",
+    "Fuente": "INEI",
+    "Nacional":{
+        "PoblacionTotalProyectada": 34038457,
+        "ExtensionSuperficial": "1,285,215.6 Km2",
+        "EsperanzaDeVida": "77.2 Años",
+        "PEA": 18157195,
+        "PoblacionConSeguroDeSalud": "88.4%",
+        "HogaresConAguaPorRedPublica": "91.0%",
+        "HogaresConAccesoATelefoniaMovil": "94.9%",
+        "HogaresConAccesoAInternet": "55.3%",
+        "PBIPerCapita": 20853
+    },
+    "Departamental":{
+        "Lima":{
+            "PoblacionTotalProyectada": 11304993,
+            "ExtensionSuperficial": "34,828.12 Km2",
+            "EsperanzaDeVida": "80.3 Años",
+            "PEA": 552443,
+            "PoblacionConSeguroDeSalud": "",
+            "HogaresConAguaPorRedPublica": "",
+            "HogaresConAccesoATelefoniaMovil": "",
+            "HogaresConAccesoAInternet": "",
+            "PBIPerCapita": 31004
+        },
+        "Arequipa":{
+            "PoblacionTotalProyectada": 1605569,
+            "ExtensionSuperficial": "63,345.39 Km2",
+            "EsperanzaDeVida": "79.4 Años",
+            "PEA": 773433,
+            "PoblacionConSeguroDeSalud": "80.9%",
+            "HogaresConAguaPorRedPublica": "95.4%",
+            "HogaresConAccesoATelefoniaMovil": "98.0%",
+            "HogaresConAccesoAInternet": "67.7%",
+            "PBIPerCapita": 32837
+        },
+        "Moquegua":{
+            "PoblacionTotalProyectada": 201129,
+            "ExtensionSuperficial": "15,733.97 Km2",
+            "EsperanzaDeVida": "78.9 Años",
+            "PEA": 109901,
+            "PoblacionConSeguroDeSalud": "87.63%",
+            "HogaresConAguaPorRedPublica": "98.3%",
+            "HogaresConAccesoATelefoniaMovil": "97.3%",
+            "HogaresConAccesoAInternet": "66.9%",
+            "PBIPerCapita": 81368
+        },
+        "Tacna":{
+            "PoblacionTotalProyectada": 396180,
+            "ExtensionSuperficial": "16,075.89 Km2",
+            "EsperanzaDeVida": "77.8 Años",
+            "PEA": 215543,
+            "PoblacionConSeguroDeSalud": "81.4%",
+            "HogaresConAguaPorRedPublica": "96.5%",
+            "HogaresConAccesoATelefoniaMovil": "96.4%",
+            "HogaresConAccesoAInternet": "63.9%",
+            "PBIPerCapita": 31765
+        },
+        "Puno":{
+            "PoblacionTotalProyectada": 1208802,
+            "ExtensionSuperficial": "71,999.00 Km2",
+            "EsperanzaDeVida": "74.5 Años",
+            "PEA": 717427,
+            "PoblacionConSeguroDeSalud": "82.9%",
+            "HogaresConAguaPorRedPublica": "81.6%",
+            "HogaresConAccesoATelefoniaMovil": "89.9%",
+            "HogaresConAccesoAInternet": "22.2%",
+            "PBIPerCapita": 15501
+        },
+        "Apurimac":{
+            "PoblacionTotalProyectada": 426626,
+            "ExtensionSuperficial": "20,895.77 Km2",
+            "EsperanzaDeVida": "74.8 Años",
+            "PEA": 254076,
+            "PoblacionConSeguroDeSalud": "96.1%",
+            "HogaresConAguaPorRedPublica": "97.3%",
+            "HogaresConAccesoATelefoniaMovil": "91.2%",
+            "HogaresConAccesoAInternet": "33.5%",
+            "PBIPerCapita": 33765
+        },
+        "Cusco":{
+            "PoblacionTotalProyectada": 1398036,
+            "ExtensionSuperficial": "71,986.50 Km2",
+            "EsperanzaDeVida": "74.6 Años",
+            "PEA": 800782,
+            "PoblacionConSeguroDeSalud": "94.6%",
+            "HogaresConAguaPorRedPublica": "93.5%",
+            "HogaresConAccesoATelefoniaMovil": "92.3%",
+            "HogaresConAccesoAInternet": "37.7%",
+            "PBIPerCapita": 31371
+        },
+        "MadreDeDios":{
+            "PoblacionTotalProyectada": 197096,
+            "ExtensionSuperficial": "85,300.54 Km2",
+            "EsperanzaDeVida": "76.4 Años",
+            "PEA": 109157,
+            "PoblacionConSeguroDeSalud": "85.6%",
+            "HogaresConAguaPorRedPublica": "90.1%",
+            "HogaresConAccesoATelefoniaMovil": "97.0%",
+            "HogaresConAccesoAInternet": "48.1%",
+            "PBIPerCapita": 16708
+        },
+        "Ayacucho":{
+            "PoblacionTotalProyectada": 669737,
+            "ExtensionSuperficial": "43,821.08 Km2",
+            "EsperanzaDeVida": "74.5 Años",
+            "PEA": 383728,
+            "PoblacionConSeguroDeSalud": "93.5%",
+            "HogaresConAguaPorRedPublica": "95.4%",
+            "HogaresConAccesoATelefoniaMovil": "92.1%",
+            "HogaresConAccesoAInternet": "35.2%",
+            "PBIPerCapita": 16079
+        },
+        "Ica":{
+            "PoblacionTotalProyectada": 1062346,
+            "ExtensionSuperficial": "21,327.83 Km2",
+            "EsperanzaDeVida": "79.6 Años",
+            "PEA": 526000,
+            "PoblacionConSeguroDeSalud": "84.7%",
+            "HogaresConAguaPorRedPublica": "91.4%",
+            "HogaresConAccesoATelefoniaMovil": "96.8%",
+            "HogaresConAccesoAInternet": "64.3%",
+            "PBIPerCapita": 41134
+        },
+        "Huancavelica":{
+            "PoblacionTotalProyectada": 335142,
+            "ExtensionSuperficial": "22,125.2 Km2",
+            "EsperanzaDeVida": "74.3 Años",
+            "PEA": 186347,
+            "PoblacionConSeguroDeSalud": "97.7%",
+            "HogaresConAguaPorRedPublica": "91.8%",
+            "HogaresConAccesoATelefoniaMovil": "91.4%",
+            "HogaresConAccesoAInternet": "24.3%",
+            "PBIPerCapita": 18179
+        },
+        "Junin":{
+            "PoblacionTotalProyectada": 1380561,
+            "ExtensionSuperficial": "44,328.8 Km2",
+            "EsperanzaDeVida": "75.7 Años",
+            "PEA": 752518,
+            "PoblacionConSeguroDeSalud": "90.8%",
+            "HogaresConAguaPorRedPublica": "92.9%",
+            "HogaresConAccesoATelefoniaMovil": "93.0%",
+            "HogaresConAccesoAInternet": "43.1%",
+            "PBIPerCapita": 19520
+        },
+        "Ucayali":{
+            "PoblacionTotalProyectada": 639279,
+            "ExtensionSuperficial": "102,199.28 Km2",
+            "EsperanzaDeVida": "75.3 Años",
+            "PEA": 318292,
+            "PoblacionConSeguroDeSalud": "86.5%",
+            "HogaresConAguaPorRedPublica": "77.0%",
+            "HogaresConAccesoATelefoniaMovil": "92.8%",
+            "HogaresConAccesoAInternet": "43.6%",
+            "PBIPerCapita": 13423
+        },
+        "Pasco":{
+            "PoblacionTotalProyectada": 265392,
+            "ExtensionSuperficial": "25,025.84 Km2",
+            "EsperanzaDeVida": "75.8 Años",
+            "PEA": 151157,
+            "PoblacionConSeguroDeSalud": "93.6%",
+            "HogaresConAguaPorRedPublica": "80.9%",
+            "HogaresConAccesoATelefoniaMovil": "93.8%",
+            "HogaresConAccesoAInternet": "47.4%",
+            "PBIPerCapita": 34028
+        },
+        "Callao":{
+            "PoblacionTotalProyectada": 1209614,
+            "ExtensionSuperficial": "145.91 Km2",
+            "EsperanzaDeVida": "80.3 Años",
+            "PEA": 574340,
+            "PoblacionConSeguroDeSalud": "87.4%",
+            "HogaresConAguaPorRedPublica": "96.5%",
+            "HogaresConAccesoATelefoniaMovil": "96.8%",
+            "HogaresConAccesoAInternet": "77.4%",
+            "PBIPerCapita": 36712
+        },
+        "Huanuco":{
+            "PoblacionTotalProyectada": 746509,
+            "ExtensionSuperficial": "37,625.77 Km2",
+            "EsperanzaDeVida": "75.6 Años",
+            "PEA": 339657,
+            "PoblacionConSeguroDeSalud": "93.7%",
+            "HogaresConAguaPorRedPublica": "83.4%",
+            "HogaresConAccesoATelefoniaMovil": "95.0%",
+            "HogaresConAccesoAInternet": "33.7%",
+            "PBIPerCapita": 14985
+        },
+        "Ancash":{
+            "PoblacionTotalProyectada": 1202171,
+            "ExtensionSuperficial": "35,889.91 Km2",
+            "EsperanzaDeVida": "77.1 Años",
+            "PEA": 642561,
+            "PoblacionConSeguroDeSalud": "94.3%",
+            "HogaresConAguaPorRedPublica": "91.5%",
+            "HogaresConAccesoATelefoniaMovil": "95.7%",
+            "HogaresConAccesoAInternet": "49.1%",
+            "PBIPerCapita": 31460
+        },
+        "LaLibertad":{
+            "PoblacionTotalProyectada": 2130145,
+            "ExtensionSuperficial": "25,499.90 Km2",
+            "EsperanzaDeVida": "78.8 Años",
+            "PEA": 1207289,
+            "PoblacionConSeguroDeSalud": "89.3%",
+            "HogaresConAguaPorRedPublica": "90.7%",
+            "HogaresConAccesoATelefoniaMovil": "95.9%",
+            "HogaresConAccesoAInternet": "57.8%",
+            "PBIPerCapita": 19267
+        },
+        "SanMartin":{
+            "PoblacionTotalProyectada": 945523,
+            "ExtensionSuperficial": "51,288.07 Km2",
+            "EsperanzaDeVida": "75.8 Años",
+            "PEA": 495339,
+            "PoblacionConSeguroDeSalud": "89.5%",
+            "HogaresConAguaPorRedPublica": "92.2%",
+            "HogaresConAccesoATelefoniaMovil": "94.9%",
+            "HogaresConAccesoAInternet": "44.6%",
+            "PBIPerCapita": 11662
+        },
+        "Loreto":{
+            "PoblacionTotalProyectada": 1057592,
+            "ExtensionSuperficial": "368,773.16 Km2",
+            "EsperanzaDeVida": "75.9 Años",
+            "PEA": 511802,
+            "PoblacionConSeguroDeSalud": "91.0%",
+            "HogaresConAguaPorRedPublica": "68.5%",
+            "HogaresConAccesoATelefoniaMovil": "84.0%",
+            "HogaresConAccesoAInternet": "34.8%",
+            "PBIPerCapita": 14106
+        },
+        "Amazonas":{
+            "PoblacionTotalProyectada": 430123,
+            "ExtensionSuperficial": "39,249.13 Km2",
+            "EsperanzaDeVida": "74.9 Años",
+            "PEA": 217733,
+            "PoblacionConSeguroDeSalud": "95.1%",
+            "HogaresConAguaPorRedPublica": "89.5%",
+            "HogaresConAccesoATelefoniaMovil": "90.1%",
+            "HogaresConAccesoAInternet": "40.8%",
+            "PBIPerCapita": 13474
+        },
+        "Cajamarca":{
+            "PoblacionTotalProyectada": 1447707,
+            "ExtensionSuperficial": "33,304.32 Km2",
+            "EsperanzaDeVida": "76.2 Años",
+            "PEA": 785728,
+            "PoblacionConSeguroDeSalud": "91.3%",
+            "HogaresConAguaPorRedPublica": "88.7%",
+            "HogaresConAccesoATelefoniaMovil": "90.4%",
+            "HogaresConAccesoAInternet": "31.1%",
+            "PBIPerCapita": 14880
+        },
+        "Lambayeque":{
+            "PoblacionTotalProyectada": 1361554,
+            "ExtensionSuperficial": "14,479.52 Km2",
+            "EsperanzaDeVida": "79.5 Años",
+            "PEA": 706289,
+            "PoblacionConSeguroDeSalud": "95.9%",
+            "HogaresConAguaPorRedPublica": "93.8%",
+            "HogaresConAccesoATelefoniaMovil": "97.1%",
+            "HogaresConAccesoAInternet": "59.2%",
+            "PBIPerCapita": 16226
+        },
+        "Piura":{
+            "PoblacionTotalProyectada": 2149978,
+            "ExtensionSuperficial": "35,657.50 Km2",
+            "EsperanzaDeVida": "77.3 Años",
+            "PEA": 1197141,
+            "PoblacionConSeguroDeSalud": "90.4%",
+            "HogaresConAguaPorRedPublica": "84.5%",
+            "HogaresConAccesoATelefoniaMovil": "94.9%",
+            "HogaresConAccesoAInternet": "44.2%",
+            "PBIPerCapita": 18875
+        },
+        "Tumbes":{
+            "PoblacionTotalProyectada": 266653,
+            "ExtensionSuperficial": "4,669.2 Km2",
+            "EsperanzaDeVida": "77.4 Años",
+            "PEA": 144584,
+            "PoblacionConSeguroDeSalud": "95.0%",
+            "HogaresConAguaPorRedPublica": "84.2%",
+            "HogaresConAccesoATelefoniaMovil": "96.2%",
+            "HogaresConAccesoAInternet": "51.0%",
+            "PBIPerCapita": 19478
+        }
+    }
+}
