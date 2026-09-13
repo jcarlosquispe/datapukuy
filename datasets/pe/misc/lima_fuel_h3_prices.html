@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Lima Fuel Prices by H3 Hexagon</title>
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    #map { position: absolute; inset: 0; }
+    .panel {
+      position: absolute; top: 12px; left: 12px; z-index: 1;
+      background: rgba(255,255,255,0.92); padding: 12px 14px;
+      border-radius: 6px; max-width: 340px; line-height: 1.35;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .panel h1 { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: #111; }
+    .panel p { margin: 0 0 10px; font-size: 11px; color: #555; }
+    .panel label { display: block; font-size: 11px; font-weight: 600; color: #333; margin-bottom: 4px; }
+    .panel select {
+      width: 100%; margin-bottom: 8px; padding: 4px 6px;
+      border: 1px solid #ccc; border-radius: 4px; font-size: 12px;
+    }
+    .month-row { display: flex; align-items: center; gap: 8px; }
+    .month-row input { flex: 1; }
+    .month-row button {
+      border: 0; background: #b91c1c; color: #fff; border-radius: 4px;
+      padding: 4px 10px; font-size: 11px; font-weight: 600; cursor: pointer;
+    }
+    .month-label { font-size: 12px; font-weight: 700; color: #111; min-width: 64px; }
+    .legend {
+      position: absolute; bottom: 28px; left: 12px; z-index: 1;
+      background: rgba(255,255,255,0.92); padding: 12px 14px;
+      border-radius: 6px; font-size: 11px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .legend strong { display: block; margin-bottom: 6px; color: #111; }
+    .legend-bar {
+      width: 200px; height: 10px; border-radius: 2px;
+      background: linear-gradient(to right, #fff5f0, #fcbba1, #fb6a4a, #cb181d, #67000d);
+    }
+    .legend-scale { display: flex; justify-content: space-between; color: #444; margin-top: 4px; font-weight: 600; }
+    .popup { font-size: 12px; line-height: 1.4; color: #222; }
+    .popup strong { font-size: 13px; color: #000; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div class="panel">
+    <h1>Lima: Fuel Prices over Time</h1>
+    <p>H3 resolution 7 · Median minimum price (S/.)</p>
+    <label for="product">Product</label>
+    <select id="product"></select>
+    <label>Month</label>
+    <div class="month-row">
+      <input id="month" type="range" min="0" step="1" />
+      <span id="month-label" class="month-label"></span>
+      <button id="play" type="button">Play</button>
+    </div>
+  </div>
+  <div class="legend">
+    <strong>Median Min. Price (S/.)</strong>
+    <div class="legend-bar"></div>
+    <div class="legend-scale">
+      <span id="legend-min"></span>
+      <span id="legend-mid"></span>
+      <span id="legend-max"></span>
+    </div>
+  </div>
+  <script>
+    const geojsonH3 = {"type": "FeatureCollection", "features": [{"type": "Feature", "id": "878e621a6ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.95022664789249, -12.209008020334283], [-76.95835974687273, -12.220295780965388], [-76.95251941341978, -12.232821510149606], [-76.93854583128991, -12.23405874119011], [-76.93041373411165, -12.222770839536576], [-76.93625421682233, -12.210245847903831], [-76.95022664789249, -12.209008020334283]]]}, "properties": {"h3_index": "878e621a6ffffff"}}, {"type": "Feature", "id": "878e62c0dffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.02028515940475, -12.058650788559005], [-77.02841922779602, -12.069937876962483], [-77.02258266883783, -12.082471134315059], [-77.00861188609517, -12.08371656386802], [-77.00047881196633, -12.07242932470654], [-77.00631552587889, -12.059896806788842], [-77.02028515940475, -12.058650788559005]]]}, "properties": {"h3_index": "878e62c0dffffff"}}, {"type": "Feature", "id": "878e62c22ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.0751003455494, -11.969649724904365], [-77.08323587696303, -11.980936274223406], [-77.07740176400776, -11.993474493357887], [-77.0634319597664, -11.994725423466079], [-77.05529741689205, -11.983438717104798], [-77.06113168928094, -11.970901237716317], [-77.0751003455494, -11.969649724904365]]]}, "properties": {"h3_index": "878e62c22ffffff"}}, {"type": "Feature", "id": "878e62c26ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.07279928703511, -11.945824463603369], [-77.08093406459783, -11.957110967452786], [-77.0751003455494, -11.969649724904365], [-77.06113168928094, -11.970901237716317], [-77.05299790032934, -11.959614575797485], [-77.05883177859637, -11.94707655917476], [-77.07279928703511, -11.945824463603369]]]}, "properties": {"h3_index": "878e62c26ffffff"}}, {"type": "Feature", "id": "878e62c62ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.93647759452946, -12.066115374150717], [-76.94460616513058, -12.07740299313086], [-76.93876820621303, -12.089932167285511], [-76.92480152827497, -12.091172978437237], [-76.91667395988593, -12.079885212294778], [-76.9225120667846, -12.067356782201141], [-76.93647759452946, -12.066115374150717]]]}, "properties": {"h3_index": "878e62c62ffffff"}}, {"type": "Feature", "id": "878e62c72ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.00047881196633, -12.07242932470654], [-77.00861188609517, -12.08371656386802], [-77.00277477721802, -12.096248522969939], [-76.98880444045578, -12.097492502898163], [-76.98067236254373, -12.086205114389573], [-76.9865096247384, -12.073673895338537], [-77.00047881196633, -12.07242932470654]]]}, "properties": {"h3_index": "878e62c72ffffff"}}, {"type": "Feature", "id": "878e62c74ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.9760845990974, -12.038567441574537], [-76.98421516826845, -12.04985476199432], [-76.97837830125209, -12.062386538777087], [-76.96441071337235, -12.06363025234439], [-76.95628114251029, -12.052342781938531], [-76.96211816078059, -12.039811747989829], [-76.9760845990974, -12.038567441574537]]]}, "properties": {"h3_index": "878e62c74ffffff"}}, {"type": "Feature", "id": "878e62d0affffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.04839994619928, -11.911964835737772], [-77.05653222763571, -11.923251396180401], [-77.05069874345742, -11.935789945895435], [-77.03673282025002, -11.937041191591538], [-77.02860152952188, -11.925754472435123], [-77.03443517085445, -11.913216666334762], [-77.04839994619928, -11.911964835737772]]]}, "properties": {"h3_index": "878e62d0affffff"}}, {"type": "Feature", "id": "878e62d4affffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.90980891391831, -12.00843519220939], [-76.91793421940739, -12.01972283399363], [-76.912096904176, -12.032252377180448], [-76.89813413730914, -12.033493530694864], [-76.89000983618507, -12.022205740083555], [-76.89584729712503, -12.009676944822733], [-76.90980891391831, -12.00843519220939]]]}, "properties": {"h3_index": "878e62d4affffff"}}, {"type": "Feature", "id": "878e62c29ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.99588795955985, -12.02478935898014], [-77.00401952508732, -12.03607652800224], [-76.99818320610595, -12.04860960059951], [-76.98421516826845, -12.04985476199432], [-76.9760845990974, -12.038567441574537], [-76.98192107096894, -12.026035111196084], [-76.99588795955985, -12.02478935898014]]]}, "properties": {"h3_index": "878e62c29ffffff"}}, {"type": "Feature", "id": "878e62d11ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.10779449724859, -11.870579730134208], [-77.11592973908499, -11.881865805966514], [-77.11009791759912, -11.894408160460678], [-77.09613069178067, -11.895663697411841], [-77.08799643478945, -11.884377458631468], [-77.09382841833282, -11.871835845886588], [-77.10779449724859, -11.870579730134208]]]}, "properties": {"h3_index": "878e62d11ffffff"}}, {"type": "Feature", "id": "878e75a61ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.15565311631846, -11.710005390138432], [-77.1637875362761, -11.72129061060097], [-77.1579593524485, -11.733839247997269], [-77.14399658234754, -11.73510191969156], [-77.1358631417367, -11.72381652689298], [-77.1416914914417, -11.711268634774457], [-77.15565311631846, -11.710005390138432]]]}, "properties": {"h3_index": "878e75a61ffffff"}}, {"type": "Feature", "id": "878e628b4ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.82148853376208, -11.96824559300987], [-76.82960679339173, -11.979533613538726], [-76.82376890640543, -11.992060154852396], [-76.80981262102775, -11.993297920971962], [-76.8016953738118, -11.98200975316339], [-76.8075333991228, -11.969483966552092], [-76.82148853376208, -11.96824559300987]]]}, "properties": {"h3_index": "878e628b4ffffff"}}, {"type": "Feature", "id": "878e62c1dffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.08430817981784, -12.064945758251545], [-77.09244672773596, -12.076232447475835], [-77.08661103882311, -12.088768471938236], [-77.07263664125813, -12.09001707180256], [-77.06449908159104, -12.078730229639177], [-77.07033493079861, -12.066194940589725], [-77.08430817981784, -12.064945758251545]]]}, "properties": {"h3_index": "878e62c1dffffff"}}, {"type": "Feature", "id": "878e62c31ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.09720611444727, -11.979683907599146], [-77.10534338633268, -11.99097034076432], [-77.09950943466207, -12.003509297940846], [-77.08553804938236, -12.004761083949079], [-77.07740176400776, -11.993474493357887], [-77.08323587696303, -11.980936274223406], [-77.09720611444727, -11.979683907599146]]]}, "properties": {"h3_index": "878e62c31ffffff"}}, {"type": "Feature", "id": "878e62c76ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.99818320610595, -12.04860960059951], [-77.00631552587889, -12.059896806788842], [-77.00047881196633, -12.07242932470654], [-76.9865096247384, -12.073673895338537], [-76.97837830125209, -12.062386538777087], [-76.98421516826845, -12.04985476199432], [-76.99818320610595, -12.04860960059951]]]}, "properties": {"h3_index": "878e62c76ffffff"}}, {"type": "Feature", "id": "878e62ce8ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.03177630379538, -12.17774713305863], [-77.03991414526953, -12.189034328520432], [-77.03407561222654, -12.201564745028726], [-77.0200990812437, -12.202807232101037], [-77.0119622336788, -12.191519890999007], [-77.01780092274812, -12.178990208504151], [-77.03177630379538, -12.17774713305863]]]}, "properties": {"h3_index": "878e62ce8ffffff"}}, {"type": "Feature", "id": "878e666d5ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.9508775564326, -11.776525330709505], [-76.95899983542256, -11.78781197669266], [-76.95316731315714, -11.800349615355143], [-76.93921236255059, -11.801599853324003], [-76.93109108262607, -11.790313046039815], [-76.93692375380549, -11.777776162125033], [-76.9508775564326, -11.776525330709505]]]}, "properties": {"h3_index": "878e666d5ffffff"}}, {"type": "Feature", "id": "878e62c4effffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.92354223259106, -12.151330502993252], [-76.93167206487634, -12.16261835575719], [-76.92583237423798, -12.175144510066485], [-76.91186270389457, -12.176382070232357], [-76.90373387556883, -12.165094074789998], [-76.90957371318846, -12.152568661898663], [-76.92354223259106, -12.151330502993252]]]}, "properties": {"h3_index": "878e62c4effffff"}}, {"type": "Feature", "id": "878e62c18ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-77.10642155726029, -12.074982402972964], [-77.11456184579993, -12.086268963356998], [-77.10872631903463, -12.098805721528606], [-77.09475034114264, -12.10005518564632], [-77.08661103882311, -12.088768471938236], [-77.09244672773596, -12.076232447475835], [-77.10642155726029, -12.074982402972964]]]}, "properties": {"h3_index": "878e62c18ffffff"}}, {"type": "Feature", "id": "878e62c55ffffff", "geometry": {"type": "Polygon", "coordinates": [[[-76.98296678304929, -12.110023160082324], [-76.9910996154976, -12.121310576343706], [-76.98526156284582, -12.133840667526743], [-76.97129052541295, -12.1350826029058], [-76.96315869106571, -12.123795039732533], [-76.96899689561154, -12.111265688130779], [-76.98296678304929, -12.110023160082324]]]}, "properties": {"h3_index": "878e62c55ffffff"}}]};
+    const pricesByProduct = {"DIESEL 2": {"2026-03": {"878e621a6ffffff": 20.75, "878e62c74ffffff": 19.1}}, "DIESEL B5": {"2026-01": {"878e621a6ffffff": 11.8, "878e62c22ffffff": 12.7}, "2026-02": {"878e621a6ffffff": 12.2, "878e62d4affffff": 12.0}, "2026-03": {"878e621a6ffffff": 19.5, "878e62c1dffffff": 19.275}, "2026-04": {"878e621a6ffffff": 21.0, "878e62c0dffffff": 20.9, "878e62c1dffffff": 22.049999999999997, "878e666d5ffffff": 22.0}, "2026-05": {"878e621a6ffffff": 20.6, "878e62c0dffffff": 21.4, "878e62c1dffffff": 21.45, "878e62c22ffffff": 21.15, "878e62d4affffff": 20.0}, "2026-06": {"878e621a6ffffff": 18.15, "878e62c0dffffff": 18.9, "878e62c1dffffff": 20.1, "878e62d4affffff": 17.75}, "2026-07": {"878e621a6ffffff": 18.1, "878e62c0dffffff": 19.65, "878e62c1dffffff": 19.5, "878e62c22ffffff": 17.9, "878e62c55ffffff": 18.9, "878e62d4affffff": 17.0}, "2026-08": {"878e621a6ffffff": 21.9, "878e62c0dffffff": 22.4, "878e62c1dffffff": 22.175}, "2026-09": {"878e621a6ffffff": 22.6, "878e62c0dffffff": 22.65, "878e62c1dffffff": 23.25}}, "Diesel 2 S-50": {"2026-03": {"878e621a6ffffff": 20.75}}, "Diesel B5 S-50": {"2026-01": {"878e621a6ffffff": 11.8, "878e62c0dffffff": 17.064999999999998, "878e62c22ffffff": 12.7, "878e62c26ffffff": 11.5, "878e62c62ffffff": 13.5, "878e62c72ffffff": 13.175, "878e62c74ffffff": 13.0, "878e62d0affffff": 12.015, "878e62d4affffff": 11.5}, "2026-02": {"878e621a6ffffff": 12.75, "878e62c0dffffff": 17.515, "878e62c29ffffff": 12.86, "878e62c62ffffff": 13.9, "878e62c72ffffff": 13.57, "878e62d0affffff": 12.43, "878e62d11ffffff": 12.1, "878e62d4affffff": 12.0, "878e75a61ffffff": 12.58}, "2026-03": {"878e621a6ffffff": 19.5, "878e628b4ffffff": 18.8, "878e62c0dffffff": 21.445, "878e62c1dffffff": 19.275, "878e62c31ffffff": 13.5, "878e62c62ffffff": 21.0, "878e62c72ffffff": 21.17, "878e62c76ffffff": 18.5, "878e62ce8ffffff": 19.99, "878e62d0affffff": 15.96}, "2026-04": {"878e621a6ffffff": 21.0, "878e62c0dffffff": 25.585, "878e62c1dffffff": 22.049999999999997, "878e62c62ffffff": 22.5, "878e62c72ffffff": 22.38, "878e62c76ffffff": 24.0, "878e62d0affffff": 19.82, "878e62d4affffff": 22.0, "878e666d5ffffff": 24.0}, "2026-05": {"878e621a6ffffff": 20.6, "878e62c0dffffff": 25.515, "878e62c1dffffff": 21.45, "878e62c22ffffff": 20.9, "878e62c4effffff": 20.5, "878e62c62ffffff": 22.6, "878e62c72ffffff": 21.05, "878e62c76ffffff": 22.6, "878e62d0affffff": 19.16, "878e62d4affffff": 20.0}, "2026-06": {"878e621a6ffffff": 18.5, "878e628b4ffffff": 17.0, "878e62c0dffffff": 23.165, "878e62c1dffffff": 20.1, "878e62c31ffffff": 19.9, "878e62c4effffff": 18.5, "878e62c62ffffff": 20.2, "878e62c72ffffff": 19.19, "878e62d0affffff": 17.365000000000002, "878e62d4affffff": 17.75}, "2026-07": {"878e621a6ffffff": 18.1, "878e628b4ffffff": 16.8, "878e62c0dffffff": 23.71, "878e62c18ffffff": 16.95, "878e62c1dffffff": 19.5, "878e62c22ffffff": 17.9, "878e62c31ffffff": 18.0, "878e62c55ffffff": 18.9, "878e62c72ffffff": 20.13, "878e62c76ffffff": 22.5, "878e62d0affffff": 18.95, "878e62d4affffff": 17.0}, "2026-08": {"878e621a6ffffff": 22.2, "878e628b4ffffff": 21.3, "878e62c0dffffff": 28.775, "878e62c1dffffff": 22.175, "878e62c62ffffff": 21.9, "878e62c72ffffff": 24.869999999999997, "878e62c76ffffff": 25.0, "878e62d0affffff": 22.1}, "2026-09": {"878e621a6ffffff": 22.6, "878e62c1dffffff": 23.25, "878e62c62ffffff": 23.3, "878e62c72ffffff": 25.08, "878e62c76ffffff": 25.55, "878e62d0affffff": 22.1}}, "PETR\u00d3LEO INDUSTRIAL N\u00ba 500": {"2026-01": {"878e62d0affffff": 10.17}, "2026-02": {"878e62d0affffff": 10.17}, "2026-03": {"878e62d0affffff": 11.64}, "2026-04": {"878e62d0affffff": 14.45}, "2026-05": {"878e62d0affffff": 14.525}, "2026-06": {"878e62d0affffff": 14.1}, "2026-07": {"878e62d0affffff": 14.015}, "2026-08": {"878e62d0affffff": 14.66}, "2026-09": {"878e62d0affffff": 14.79}}, "PETR\u00d3LEO INDUSTRIAL N\u00ba 6": {"2026-01": {"878e62d0affffff": 10.26}, "2026-02": {"878e62d0affffff": 10.26}, "2026-03": {"878e62d0affffff": 11.81}, "2026-04": {"878e62d0affffff": 14.68}, "2026-05": {"878e62d0affffff": 14.719999999999999}, "2026-06": {"878e62d0affffff": 14.27}, "2026-07": {"878e62d0affffff": 14.245000000000001}, "2026-08": {"878e62d0affffff": 14.98}, "2026-09": {"878e62d0affffff": 15.100000000000001}}};
+    const priceRanges = {"DIESEL 2": {"min": 19.1, "max": 20.75}, "DIESEL B5": {"min": 11.8, "max": 23.25}, "Diesel 2 S-50": {"min": 20.75, "max": 20.75}, "Diesel B5 S-50": {"min": 11.5, "max": 28.775}, "PETR\u00d3LEO INDUSTRIAL N\u00ba 500": {"min": 10.17, "max": 14.79}, "PETR\u00d3LEO INDUSTRIAL N\u00ba 6": {"min": 10.26, "max": 15.100000000000001}};
+    const products = ["DIESEL 2", "DIESEL B5", "Diesel 2 S-50", "Diesel B5 S-50", "PETR\u00d3LEO INDUSTRIAL N\u00ba 500", "PETR\u00d3LEO INDUSTRIAL N\u00ba 6"];
+    const months = ["2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09"];
+    const defaultProduct = "Diesel B5 S-50";
+
+    const productSelect = document.getElementById('product');
+    const monthSlider = document.getElementById('month');
+    const monthLabel = document.getElementById('month-label');
+    const playBtn = document.getElementById('play');
+
+    products.forEach((p) => {
+      const opt = document.createElement('option');
+      opt.value = p;
+      opt.textContent = p;
+      if (p === defaultProduct) opt.selected = true;
+      productSelect.appendChild(opt);
+    });
+    monthSlider.max = String(months.length - 1);
+    monthSlider.value = '0';
+
+    function currentProduct() { return productSelect.value; }
+    function currentMonth() { return months[Number(monthSlider.value)]; }
+
+    function hexData(product, month) {
+      const prices = (pricesByProduct[product] || {})[month] || {};
+      return {
+        type: 'FeatureCollection',
+        features: geojsonH3.features.map((f) => {
+          const h3id = f.properties.h3_index;
+          const precio = prices[h3id];
+          return {
+            ...f,
+            properties: {
+              ...f.properties,
+              precio: typeof precio === 'number' ? precio : null,
+              month,
+              product
+            }
+          };
+        })
+      };
+    }
+
+    function colorPaint(product) {
+      const rng = priceRanges[product];
+      const minP = rng.min;
+      const maxP = rng.max;
+      const span = Math.max(maxP - minP, 0.01);
+      return {
+        'fill-color': [
+          'case',
+          ['==', ['typeof', ['get', 'precio']], 'number'],
+          [
+            'interpolate', ['linear'], ['get', 'precio'],
+            minP, '#fff5f0',
+            minP + span * 0.25, '#fcbba1',
+            minP + span * 0.5, '#fb6a4a',
+            minP + span * 0.75, '#cb181d',
+            maxP, '#67000d'
+          ],
+          'rgba(0,0,0,0)'
+        ],
+        'fill-opacity': [
+          'case',
+          ['==', ['typeof', ['get', 'precio']], 'number'],
+          0.60,
+          0
+        ]
+      };
+    }
+
+    function updateLegend(product) {
+      const rng = priceRanges[product];
+      document.getElementById('legend-min').textContent = rng.min.toFixed(2);
+      document.getElementById('legend-mid').textContent = ((rng.min + rng.max) / 2).toFixed(2);
+      document.getElementById('legend-max').textContent = rng.max.toFixed(2);
+    }
+
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://tiles.openfreemap.org/styles/positron',
+      center: [-76.98274145504395, -11.972032065664271],
+      zoom: 10,
+      attributionControl: true
+    });
+
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+    map.fitBounds([[-77.1637875362761, -12.23405874119011], [-76.8016953738118, -11.710005390138432]], { padding: 40, duration: 0 });
+
+    function applyFrame() {
+      const product = currentProduct();
+      const month = currentMonth();
+      monthLabel.textContent = month;
+      if (!map.getSource('h3-prices')) return;
+      map.getSource('h3-prices').setData(hexData(product, month));
+      const paint = colorPaint(product);
+      map.setPaintProperty('h3-fill', 'fill-color', paint['fill-color']);
+      map.setPaintProperty('h3-fill', 'fill-opacity', paint['fill-opacity']);
+      updateLegend(product);
+    }
+
+    map.on('load', () => {
+      const firstSymbol = map.getStyle().layers.find(l => l.type === 'symbol');
+      const beforeId = firstSymbol ? firstSymbol.id : undefined;
+      const product = currentProduct();
+      const month = currentMonth();
+
+      map.addSource('h3-prices', { type: 'geojson', data: hexData(product, month) });
+
+      map.addLayer({
+        id: 'h3-fill',
+        type: 'fill',
+        source: 'h3-prices',
+        paint: colorPaint(product)
+      }, beforeId);
+
+      map.addLayer({
+        id: 'h3-line',
+        type: 'line',
+        source: 'h3-prices',
+        paint: {
+          'line-color': '#555555',
+          'line-width': 0.3,
+          'line-opacity': 0.4
+        }
+      }, beforeId);
+
+      map.on('click', 'h3-fill', (e) => {
+        const p = e.features[0].properties;
+        const price = Number(p.precio);
+        new maplibregl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(
+            `<div class="popup">
+               <strong>${p.product}</strong><br/>
+               Month: <b>${p.month}</b><br/>
+               Median min. price: <b>${Number.isFinite(price) ? price.toFixed(2) : 'n/a'} S/.</b><br/>
+               <span style="color:#777">H3 Index: ${p.h3_index}</span>
+             </div>`
+          )
+          .addTo(map);
+      });
+
+      map.on('mouseenter', 'h3-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'h3-fill', () => { map.getCanvas().style.cursor = ''; });
+
+      applyFrame();
+    });
+
+    productSelect.addEventListener('change', applyFrame);
+    monthSlider.addEventListener('input', applyFrame);
+
+    let timer = null;
+    playBtn.addEventListener('click', () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+        playBtn.textContent = 'Play';
+        return;
+      }
+      playBtn.textContent = 'Pause';
+      timer = setInterval(() => {
+        const next = (Number(monthSlider.value) + 1) % months.length;
+        monthSlider.value = String(next);
+        applyFrame();
+      }, 900);
+    });
+  </script>
+</body>
+</html>
